@@ -113,10 +113,14 @@ def show_cartographie(df_unused, lang="fr"):
     # Charger le fichier GeoJSON une seule fois
     url_geojson = "https://raw.githubusercontent.com/hyontnick/qganalytics_blood_dashboard_indabax/main/APPLICATION/map/douala_arrondissements.geojson"
     try:
-        with open(url_geojson, "r") as f:
-            geojson_data = json.load(f)
-    except FileNotFoundError:
-        st.error(translations[lang]["geojson_error"])
+        response = requests.get(url_geojson)
+        response.raise_for_status()  # Vérifie si l’URL est accessible
+        geojson_data = json.loads(response.text)
+    except requests.exceptions.RequestException as e:
+        st.error(f"{translations[lang]['geojson_error']} : {e}")
+        return
+    except json.JSONDecodeError as e:
+        st.error(f"Erreur de parsing GeoJSON : {e}")
         return
 
     # Ligne 1 : Cartes Folium
