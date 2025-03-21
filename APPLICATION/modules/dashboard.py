@@ -21,9 +21,9 @@ st.set_page_config(layout="wide", page_title="Blood Donation Dashboard", page_ic
 # Charger les données
 @st.cache_data
 def load_data():
-    url_volontaire = "https://github.com/hyontnick/qganalytics_blood_dashboard_indabax/blob/main/APPLICATION/datas/volontaire_clean_corrige.csv"
-    url_2020 = "https://github.com/hyontnick/qganalytics_blood_dashboard_indabax/blob/main/APPLICATION/datas/2020_clean.csv"
-    url_dates = "https://github.com/hyontnick/qganalytics_blood_dashboard_indabax/blob/main/APPLICATION/datas/dates_2019_extraites.csv"
+    url_volontaire = "https://raw.githubusercontent.com/hyontnick/qganalytics_blood_dashboard_indabax/refs/heads/main/APPLICATION/datas/volontaire_clean_corrige.csv"
+    url_2020 = "https://raw.githubusercontent.com/hyontnick/qganalytics_blood_dashboard_indabax/refs/heads/main/APPLICATION/datas/2020_clean.csv"
+    url_dates = "https://raw.githubusercontent.com/hyontnick/qganalytics_blood_dashboard_indabax/refs/heads/main/APPLICATION/datas/dates_2019_extraites.csv"
     df_volontaire = pd.read_csv(url_volontaire)
     df_2020 = pd.read_csv(url_2020)
     df_dates = pd.read_csv(url_dates)
