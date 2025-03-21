@@ -87,7 +87,8 @@ translations = {
 
 @st.cache_data
 def load_data():
-    df = pd.read_csv('datas/volontaire_clean_corrige.csv')
+    url_volontaire = "https://raw.githubusercontent.com/hyontnick/qganalytics_blood_dashboard_indabax/refs/heads/main/APPLICATION/datas/volontaire_clean_corrige.csv"
+    df = pd.read_csv(url_volontaire)
     return df
 
 def show_fidelisation(df_unused=None, lang="fr"):
