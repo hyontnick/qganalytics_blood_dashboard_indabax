@@ -21,9 +21,9 @@ st.set_page_config(layout="wide", page_title="Blood Donation Dashboard", page_ic
 # Charger les données
 @st.cache_data
 def load_data():
-    url_volontaire = "https://drive.google.com/file/d/1uYSDE9100RH0yw48c9vp0AM0L5Yx7d_C/view?usp=sharing"
-    url_2020 = "https://drive.google.com/file/d/1ywzNWhJZ8Fj23wIlg7kkHtdjmIS4t1FE/view?usp=sharing"
-    url_dates = "https://drive.google.com/file/d/1yPEPJ_lBJiXxR0KnRoEwt85e8lx6a6af/view?usp=sharing"
+    url_volontaire = "https://drive.google.com/drive/u/0/folders/1NNuAYH2WGW7WmL9z7jdzstX1nyN7z406"
+    url_2020 = "https://drive.google.com/drive/u/0/folders/1NNuAYH2WGW7WmL9z7jdzstX1nyN7z406"
+    url_dates = "https://drive.google.com/drive/u/0/folders/1NNuAYH2WGW7WmL9z7jdzstX1nyN7z406"
     df_volontaire = pd.read_csv(url_volontaire)
     df_2020 = pd.read_csv(url_2020)
     df_dates = pd.read_csv(url_dates)
