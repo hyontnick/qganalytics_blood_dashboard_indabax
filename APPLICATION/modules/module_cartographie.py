@@ -120,7 +120,7 @@ def show_cartographie(df_unused, lang="fr"):
         st.error(f"{translations[lang]['geojson_error']} : {e}")
         return
     except json.JSONDecodeError as e:
-        st.error(f"Erreur de parsing GeoJSON : {e}")
+        st.error(f"{translations[lang]['geojson_error']}: {e}")
         return
 
     # Ligne 1 : Cartes Folium
