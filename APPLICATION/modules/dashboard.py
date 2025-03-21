@@ -416,7 +416,7 @@ def show_dashboard():
             st.write(translations[lang]["about_text"])
 
         qr = qrcode.QRCode(version=1, box_size=10, border=5)
-        qr.add_data("https://example.com/douala_dashboard")
+        qr.add_data("https://qganalytics-blood-dashboard-indabax.streamlit.app/")
         qr.make(fit=True)
         qr_img = qr.make_image(fill_color="#4CAF50", back_color="white")
         buf = BytesIO()
