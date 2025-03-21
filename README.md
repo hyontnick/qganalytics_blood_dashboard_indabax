@@ -86,10 +86,27 @@ Certaines hypothèses ont guidé le développement pour assurer une implémentat
    ```
    Le fichier `requirements.txt` devrait inclure :
    ```
-   streamlit==1.32.0
-   pandas==2.2.1
-   plotly==5.20.0
+   streamlit==1.43.2
+   pandas==2.0.0
+   numpy==1.24.0
+   plotly==5.14.0
+   folium==0.19.5
+   streamlit-folium==0.24.0
+   fastapi==0.115.11
+   uvicorn==0.34.0
+   joblib==1.2.0
+   pydantic==2.8.2
+   scikit-learn==1.2.2
+   imblearn==0.11.0
+   vaderSentiment==3.3.2
+   qrcode==8.0
+   pillow==9.5.0
+   fuzzywuzzy==0.18.0
+   python-Levenshtein==0.27.1  # Optionnel, mais recommandé pour fuzzywuzzy
    requests==2.31.0
+   matplotlib==3.7.1
+   networkx==3.1
+
    ```
 
 3. **Lancer le Tableau de Bord** :
@@ -200,7 +217,7 @@ Ce tableau de bord est conçu pour être à la fois un outil analytique puissant
 ### Instructions pour Utiliser ce README
 1. Crée un fichier `README.md` à la racine de ton dépôt.
 2. Copie-colle ce contenu dedans.
-3. Remplace les placeholders comme `https://github.com/ton-username/mon-tableau-de-bord.git` par l’URL réelle de ton dépôt GitHub, et ajuste `[ton-email@example.com]` si nécessaire.
+3. Remplace les placeholders comme `https://github.com/ton-username/mon-tableau-de-bord.git` par l’URL réelle de ton dépôt GitHub, et ajuste `[hyontnick@gmail.com]` si nécessaire.
 4. Pousse-le sur GitHub :
    ```bash
    git add README.md
