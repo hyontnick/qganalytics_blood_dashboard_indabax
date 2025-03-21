@@ -9,7 +9,7 @@ Bienvenue dans le **Tableau de Bord de Gestion des Dons de Sang**, une applicati
 Ce tableau de bord offre une expérience utilisateur riche et intuitive grâce aux modules suivants :
 
 1. **Banque de Sang** :
-   - Visualisation compacte et interactive des données de dons de 2020.
+   - Visualisation compacte et interactive des données de dons de 2019.
    - Graphiques en barres (dons par groupe sanguin et sexe) et en camemberts (répartition des groupes sanguins et types de donation).
    - Filtres dynamiques : groupe sanguin, sexe, âge et mois, permettant une exploration personnalisée.
    - Statistiques détaillées : total des dons, âge moyen, pourcentages par sexe, groupe le plus fréquent.
@@ -59,7 +59,7 @@ Certaines hypothèses ont guidé le développement pour assurer une implémentat
 
 4. **Expérience Utilisateur** :
    - Les utilisateurs ont un écran d’au moins 800px de hauteur pour une visualisation optimale sans défilement excessif.
-   - Une connexion internet stable est disponible pour interagir avec l’API.
+   - Une connexion internet stable est disponible pour interagir avec l’API. `[https://github.com/hyontnick/api_blood_donation]`
 
 ---
 
@@ -115,6 +115,7 @@ Certaines hypothèses ont guidé le développement pour assurer une implémentat
    streamlit run dashboard.py
    ```
    Ouvre ton navigateur à `http://localhost:8501`.
+   pwd: `QG ANALYTICS`
 
 ### Comment Interagir avec les Visualisations
 Le tableau de bord est conçu pour une interaction fluide et intuitive. Voici comment tirer parti des visualisations :
