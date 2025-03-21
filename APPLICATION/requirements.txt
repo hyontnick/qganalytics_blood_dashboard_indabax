@@ -11,7 +11,7 @@ pydantic==2.8.2
 scikit-learn==1.2.2
 imblearn==0.10.1
 vaderSentiment==3.3.2
-qrcode==7.4.2
+qrcode==8.0
 pillow==9.5.0
 fuzzywuzzy==0.18.0
 python-Levenshtein==0.27.1  # Optionnel, mais recommandé pour fuzzywuzzy
