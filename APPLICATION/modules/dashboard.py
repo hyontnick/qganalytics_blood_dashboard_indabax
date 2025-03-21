@@ -22,11 +22,12 @@ st.set_page_config(layout="wide", page_title="Blood Donation Dashboard", page_ic
 @st.cache_data
 def load_data():
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # Répertoire de dashboard.py
-    DATA_PATH = os.path.join(BASE_DIR, '../../datas/volontaire_clean_corrige.csv')
-    df_volontaire = pd.read_csv(DATA_PATH)
-    # df_volontaire = pd.read_csv('datas/volontaire_clean_corrige.csv')
-    df_2020 = pd.read_csv('datas/2020_clean.csv')
-    df_dates = pd.read_csv('datas/dates_2019_extraites.csv')
+    df_volontaire = pd.read_csv(os.path.join(BASE_DIR, '../../datas/volontaire_clean_corrige.csv'))
+    df_2020 = pd.read_csv(os.path.join(BASE_DIR, '../../datas/2020_clean.csv'))
+    df_dates = pd.read_csv(os.path.join(BASE_DIR, '../../datas/dates_2019_extraites.csv'))
+    #df_volontaire = pd.read_csv('datas/volontaire_clean_corrige.csv')
+    #df_2020 = pd.read_csv('datas/2020_clean.csv')
+    #df_dates = pd.read_csv('datas/dates_2019_extraites.csv')
     df_dates['date_de_remplissage_de_la_fiche'] = pd.to_datetime(df_dates['date_de_remplissage_de_la_fiche'])
     return df_volontaire, df_2020, df_dates
 
