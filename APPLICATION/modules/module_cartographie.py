@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import folium
+import requests
 from streamlit_folium import folium_static
 import json
 from fuzzywuzzy import process
@@ -120,7 +121,7 @@ def show_cartographie(df_unused, lang="fr"):
         st.error(f"{translations[lang]['geojson_error']} : {e}")
         return
     except json.JSONDecodeError as e:
-        st.error(f"{translations[lang]['geojson_error']}: {e}")
+        st.error(f"Erreur de parsing GeoJSON : {e}")
         return
 
     # Ligne 1 : Cartes Folium
