@@ -20,9 +20,9 @@ st.set_page_config(layout="wide", page_title="Blood Donation Dashboard", page_ic
 # Charger les données
 @st.cache_data
 def load_data():
-    df_volontaire = pd.read_csv('../datas/volontaire_clean_corrige.csv')
-    df_2020 = pd.read_csv('../datas/2020_clean.csv')
-    df_dates = pd.read_csv('../datas/dates_2019_extraites.csv')
+    df_volontaire = pd.read_csv('datas/volontaire_clean_corrige.csv')
+    df_2020 = pd.read_csv('datas/2020_clean.csv')
+    df_dates = pd.read_csv('datas/dates_2019_extraites.csv')
     df_dates['date_de_remplissage_de_la_fiche'] = pd.to_datetime(df_dates['date_de_remplissage_de_la_fiche'])
     return df_volontaire, df_2020, df_dates
 

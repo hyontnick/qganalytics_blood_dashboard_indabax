@@ -30,7 +30,7 @@ translations = {
         "export_button": "Exporter les données (CSV)",
         "export_filename": "cartographie_donneurs.csv",
         "missing_cols_error": "❌ Colonnes manquantes : {}",
-        "geojson_error": "Fichier GeoJSON non trouvé. Vérifie le chemin : '../map/douala_arrondissements.geojson'",
+        "geojson_error": "Fichier GeoJSON non trouvé. Vérifie le chemin : 'map/douala_arrondissements.geojson'",
         "no_quartier_data_warning": "Pas de données GeoJSON pour les quartiers, affichage limité."
     },
     "en": {
@@ -54,7 +54,7 @@ translations = {
         "export_button": "Export Data (CSV)",
         "export_filename": "donor_mapping.csv",
         "missing_cols_error": "❌ Missing columns: {}",
-        "geojson_error": "GeoJSON file not found. Check the path: '../map/douala_arrondissements.geojson'",
+        "geojson_error": "GeoJSON file not found. Check the path: 'map/douala_arrondissements.geojson'",
         "no_quartier_data_warning": "No GeoJSON data for neighborhoods, limited display."
     }
 }
@@ -112,7 +112,7 @@ def show_cartographie(df_unused, lang="fr"):
 
     # Charger le fichier GeoJSON une seule fois
     try:
-        with open("../map/douala_arrondissements.geojson", "r") as f:
+        with open("map/douala_arrondissements.geojson", "r") as f:
             geojson_data = json.load(f)
     except FileNotFoundError:
         st.error(translations[lang]["geojson_error"])

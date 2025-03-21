@@ -7,9 +7,9 @@ from datetime import datetime
 app = FastAPI()
 
 # Charger modèle, scaler et encodeurs au démarrage
-model = joblib.load('/home/hyont-nick/INDABAX/BLOOD/APP/model/eligibility_model_rf_optimized.pkl')
-scaler = joblib.load('/home/hyont-nick/INDABAX/BLOOD/APP/model/scaler_optimized.pkl')
-le_dict = joblib.load('/home/hyont-nick/INDABAX/BLOOD/APP/model/label_encoders.pkl')
+model = joblib.load('model/eligibility_model_rf_optimized.pkl')
+scaler = joblib.load('model/scaler_optimized.pkl')
+le_dict = joblib.load('model/label_encoders.pkl')
 
 # Liste des features dans l'ordre exact attendu par le modèle
 FEATURES = [
