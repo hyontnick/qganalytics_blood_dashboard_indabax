@@ -94,8 +94,10 @@ translations = {
 
 @st.cache_data
 def load_data():
-    df_volontaires = pd.read_csv('datas/volontaire_clean_corrige.csv')
-    df_dates = pd.read_csv('datas/dates_2019_extraites.csv')
+    url_volontaire = "https://raw.githubusercontent.com/hyontnick/qganalytics_blood_dashboard_indabax/refs/heads/main/APPLICATION/datas/volontaire_clean_corrige.csv"
+    url_dates = "https://raw.githubusercontent.com/hyontnick/qganalytics_blood_dashboard_indabax/refs/heads/main/APPLICATION/datas/dates_2019_extraites.csv"
+    df_volontaires = pd.read_csv(url_volontaire)
+    df_dates = pd.read_csv(url_dates)
     df_merged = df_volontaires.merge(df_dates, left_index=True, right_index=True, how='left')
     return df_merged
 
