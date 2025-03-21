@@ -206,7 +206,7 @@ Le module de prédiction repose sur une API REST FastAPI déployée sur Render �
 
 ## 📝 Notes Finales
 
-Ce tableau de bord est conçu pour être à la fois un outil analytique puissant et une interface utilisateur intuitive. Toute suggestion ou amélioration est la bienvenue ! Pour toute question, contactez [ton-email@example.com] ou ouvrez une issue sur le dépôt GitHub.
+Ce tableau de bord est conçu pour être à la fois un outil analytique puissant et une interface utilisateur intuitive. Toute suggestion ou amélioration est la bienvenue ! Pour toute question, contactez [hyontnick@gmail.com] ou ouvrez une issue sur le dépôt GitHub.
 
 **Développé avec 💡 et ❤️ pour optimiser la gestion des dons de sang.**
 
