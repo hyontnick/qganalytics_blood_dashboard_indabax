@@ -370,7 +370,21 @@ def show_dashboard():
         st.subheader(translations[lang]["top_arrondissements"])
         top_arrondissements = df_volontaire_filtered['arrondissement_de_residence'].value_counts().reset_index()
         top_arrondissements.columns = [translations[lang]["arrondissement_col"], translations[lang]["volunteers_col"]]
-        st.dataframe(top_arrondissements, use_container_width=True)
+        st.dataframe(
+            top_arrondissements,
+            column_config={
+                translations[lang]["arrondissement_col"]: translations[lang]["arrondissement_col"],
+                translations[lang]["volunteers_col"]: st.column_config.ProgressColumn(
+                    translations[lang]["volunteers_col"],
+                    format="%d",
+                    min_value=0,
+                    max_value=max(top_arrondissements[translations[lang]["volunteers_col"]]),
+                    width="medium"
+                )
+            },
+            use_container_width=True,
+            height=320  # Optionnel : fixe une hauteur pour un rendu cohérent
+        )
 
         st.subheader(translations[lang]["network_arrondissements"])
         G = nx.Graph()
