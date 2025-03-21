@@ -5,7 +5,7 @@ from datetime import datetime
 import plotly.graph_objects as go
 
 # URL de l’API FastAPI (à ajuster selon votre environnement)
-API_URL = "http://localhost:8000/predict"
+API_URL = "https://api-blood-donation.onrender.com/predict"
 
 # Dictionnaire de traductions pour le module Prédiction
 translations = {
