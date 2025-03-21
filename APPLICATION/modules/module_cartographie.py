@@ -3,6 +3,7 @@ import pandas as pd
 import folium
 from streamlit_folium import folium_static
 import json
+import os
 from fuzzywuzzy import process
 import plotly.express as px
 import plotly.graph_objects as go
@@ -111,8 +112,10 @@ def show_cartographie(df_unused, lang="fr"):
     })
 
     # Charger le fichier GeoJSON une seule fois
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # Répertoire de dashboard.py
+    GEOJSON_PATH = os.path.join(BASE_DIR, '../../map/douala_arrondissements.geojson')
     try:
-        with open("https://raw.githubusercontent.com/hyontnick/qganalytics_blood_dashboard_indabax/main/map/douala_arrondissements.geojson", "r") as f:
+        with open(GEOJSON_PATH, "r") as f:
             geojson_data = json.load(f)
     except FileNotFoundError:
         st.error(translations[lang]["geojson_error"])
