@@ -73,7 +73,7 @@ Certaines hypothèses ont guidé le développement pour assurer une implémentat
 ### Étapes d’Installation
 1. **Cloner le Dépôt** :
    ```bash
-   git clone https://github.com/ton-username/mon-tableau-de-bord.git
+   git clone https://github.com/hyontnick/qganalytics_blood_dashboard_indabax.git
    cd mon-tableau-de-bord
    ```
 
@@ -218,10 +218,11 @@ Ce tableau de bord est conçu pour être à la fois un outil analytique puissant
 ### Instructions pour Utiliser ce README
 1. Crée un fichier `README.md` à la racine de ton dépôt.
 2. Copie-colle ce contenu dedans.
-3. Remplace les placeholders comme `https://github.com/ton-username/mon-tableau-de-bord.git` par l’URL réelle de ton dépôt GitHub, et ajuste `[hyontnick@gmail.com]` si nécessaire.
+3. Remplace les placeholders comme `https://github.com/hyontnick/qganalytics_blood_dashboard_indabax.git` par l’URL réelle de ton dépôt GitHub, et ajuste `[hyontnick@gmail.com]` si nécessaire.
 4. Pousse-le sur GitHub :
    ```bash
    git add README.md
    git commit -m "Ajout du README détaillé avec instructions d’interaction"
    git push origin main
    ```
+---
