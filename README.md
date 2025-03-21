@@ -211,18 +211,3 @@ Ce tableau de bord est conçu pour être à la fois un outil analytique puissant
 **Développé avec 💡 et ❤️ pour optimiser la gestion des dons de sang.**
 
 ---
-
-### Changements Ajoutés
-- **Section "Comment Interagir avec les Visualisations"** : Intégrée dans "Instructions pour Exécuter le Tableau de Bord". Elle détaille comment utiliser les filtres, interagir avec les graphiques Plotly (zoom, hover), et gérer les prédictions/historique. C’est clair, précis et orienté utilisateur.
-
-### Instructions pour Utiliser ce README
-1. Crée un fichier `README.md` à la racine de ton dépôt.
-2. Copie-colle ce contenu dedans.
-3. Remplace les placeholders comme `https://github.com/hyontnick/qganalytics_blood_dashboard_indabax.git` par l’URL réelle de ton dépôt GitHub, et ajuste `[hyontnick@gmail.com]` si nécessaire.
-4. Pousse-le sur GitHub :
-   ```bash
-   git add README.md
-   git commit -m "Ajout du README détaillé avec instructions d’interaction"
-   git push origin main
-   ```
----
