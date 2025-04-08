@@ -19,4 +19,3 @@ requests
 matplotlib
 networkx
 prophet
-urllib
