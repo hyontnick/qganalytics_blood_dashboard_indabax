@@ -1,0 +1,6 @@
+# Ignorer le répertoire .idea de PyCharm
+.idea/
+
+# Ignorer les fichiers spécifiques à PyCharm
+*_pycharm_*
+*.iml
