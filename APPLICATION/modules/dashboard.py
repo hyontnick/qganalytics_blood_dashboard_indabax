@@ -1,4 +1,8 @@
 import streamlit as st
+
+# Configuration de la page
+st.set_page_config(layout="wide", page_title="Blood Donation Dashboard", page_icon="🩸")
+
 import pandas as pd
 from datetime import datetime
 import qrcode
@@ -13,9 +17,9 @@ from module_fidelisation import show_fidelisation
 from module_sentiment import show_sentiment
 from module_prediction import show_prediction
 from module_banque_sang import show_banque_sang
+from module_visualization import show_visualization
+from module_blood_demand_prediction import show_blood_demand_prediction
 
-# Configuration de la page
-st.set_page_config(layout="wide", page_title="Blood Donation Dashboard", page_icon="🩸")
 
 # Charger les données
 @st.cache_data
@@ -89,7 +93,9 @@ translations = {
             "🤝 Fidélisation des Donneurs": "🤝 Fidélisation des Donneurs",
             "💬 Analyse de Sentiment": "💬 Analyse de Sentiment",
             "🤖 Prédiction d’Éligibilité": "🤖 Prédiction d’Éligibilité",
-            "🩸 Banque de Sang": "🩸 Banque de Sang"
+            "🩸 Banque de Sang": "🩸 Banque de Sang",
+            "📊 Visualisation des Données": "📊 Visualisation des Données",
+            "📉 Prédictions des Besoins":"📉 Prédictions des Besoins"
         }
     },
     "en": {
@@ -151,7 +157,9 @@ translations = {
             "🤝 Fidélisation des Donneurs": "🤝 Donor Retention",
             "💬 Analyse de Sentiment": "💬 Sentiment Analysis",
             "🤖 Prédiction d’Éligibilité": "🤖 Eligibility Prediction",
-            "🩸 Banque de Sang": "🩸 Blood Bank"
+            "🩸 Banque de Sang": "🩸 Blood Bank",
+            "📊 Visualisation des Données": "📊 Visualise Data",
+            "📉 Prédictions des Besoins":"📉 Predictions Needs"
         }
     }
 }
@@ -221,12 +229,26 @@ def show_login():
             placeholder=translations[lang]["password_placeholder"],
             key="password_input"
         )
+        is_admin = st.selectbox(
+            "Êtes-vous administrateur ?" if lang == "fr" else "Are you an administrator?",
+            ["Non" if lang == "fr" else "No", "Oui" if lang == "fr" else "Yes"],
+            key="is_admin_input"
+        )
+        admin_key = ""
+        if is_admin == ("Oui" if lang == "fr" else "Yes"):
+            admin_key = st.text_input(
+                "Clé administrateur" if lang == "fr" else "Admin Key",
+                type="password",
+                placeholder="Entrez la clé administrateur" if lang == "fr" else "Enter admin key",
+                key="admin_key_input"
+            )
         submit = st.form_submit_button(translations[lang]["login_button"], type="primary")
 
         if submit:
             if username_input and password_input == "QG ANALYTICS":
                 st.session_state.logged_in = True
                 st.session_state.user = username_input
+                st.session_state.is_admin = (is_admin == ("Oui" if lang == "fr" else "Yes") and admin_key == "blood2025")
                 st.session_state.selected_module = "📍 Cartographie des Donneurs"
                 st.rerun()
             else:
@@ -293,15 +315,20 @@ def show_dashboard():
         st.markdown("---")
         st.header(translations[lang]["navigation"])
         modules = {
-                "📍 Cartographie des Donneurs": lambda df: show_cartographie(df, lang),  # Si les autres modules ont aussi besoin de lang
-                "🏥 Conditions de Santé": lambda df: show_conditions(df, lang),
-                "🔬 Profilage des Donneurs": lambda df: show_profilage(df, lang),
-                "📅 Analyse des Campagnes": lambda df: show_campagnes(df, lang),
-                "🤝 Fidélisation des Donneurs": lambda df: show_fidelisation(df, lang),
-                "💬 Analyse de Sentiment": lambda df: show_sentiment(df, lang),
-                "🤖 Prédiction d’Éligibilité": lambda df: show_prediction(df, lang),
-                "🩸 Banque de Sang": lambda df: show_banque_sang(df, lang)  # Banque de Sang avec lang
-            }
+            "📍 Cartographie des Donneurs": lambda df: show_cartographie(df, lang),
+            "🏥 Conditions de Santé": lambda df: show_conditions(df, lang),
+            "🔬 Profilage des Donneurs": lambda df: show_profilage(df, lang),
+            "📅 Analyse des Campagnes": lambda df: show_campagnes(df, lang),
+            "🤝 Fidélisation des Donneurs": lambda df: show_fidelisation(df, lang),
+            "💬 Analyse de Sentiment": lambda df: show_sentiment(df, lang),
+            "🤖 Prédiction d’Éligibilité": lambda df: show_prediction(df, lang),
+            "🩸 Banque de Sang": lambda df: show_banque_sang(df, lang),
+            "📉 Prédictions des Besoins": lambda df: show_blood_demand_prediction(df, lang)
+        }
+        # Ajouter le module "Visualisation des Données" uniquement si l'utilisateur est admin
+        if st.session_state.get("is_admin", False):
+            modules["📊 Visualisation des Données"] = lambda df: show_visualization(df, lang)
+
         for module_key, module_func in modules.items():
             if st.button(translations[lang]["modules"][module_key], key=module_key, use_container_width=True):
                 st.session_state.selected_module = module_key
@@ -409,7 +436,7 @@ def show_dashboard():
             st.write(translations[lang]["about_text"])
 
         qr = qrcode.QRCode(version=1, box_size=10, border=5)
-        qr.add_data("https://example.com/douala_dashboard")
+        qr.add_data("https://qganalytics-blood-dashboard-indabax.streamlit.app/")
         qr.make(fit=True)
         qr_img = qr.make_image(fill_color="#4CAF50", back_color="white")
         buf = BytesIO()
