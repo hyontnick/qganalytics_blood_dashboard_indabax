@@ -18,3 +18,7 @@ python-Levenshtein
 requests
 matplotlib
 networkx
+prophet
+sqlite3
+base64
+urllib
