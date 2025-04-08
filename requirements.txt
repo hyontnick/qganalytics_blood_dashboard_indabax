@@ -19,5 +19,4 @@ requests
 matplotlib
 networkx
 prophet
-base64
 urllib
