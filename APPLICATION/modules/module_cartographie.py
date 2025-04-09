@@ -112,9 +112,11 @@ def show_cartographie(df_unused, lang="fr"):
 
     # Charger le fichier GeoJSON une seule fois
     try:
-        with open("https://raw.githubusercontent.com/hyontnick/qganalytics_blood_dashboard_indabax/main/APPLICATION/map/douala_arrondissements.geojson", "r") as f:
-            geojson_data = json.load(f)
-    except FileNotFoundError:
+        url = "https://raw.githubusercontent.com/hyontnick/qganalytics_blood_dashboard_indabax/main/APPLICATION/map/douala_arrondissements.geojson"
+        response = requests.get(url)
+        response.raise_for_status()  # Lève une exception si la requête échoue
+        geojson_data = json.loads(response.text)
+    except requests.exceptions.RequestException:
         st.error(translations[lang]["geojson_error"])
         return
 
