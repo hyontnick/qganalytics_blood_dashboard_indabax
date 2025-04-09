@@ -74,7 +74,7 @@ translations = {
 
 @st.cache_data
 def load_banque_sang():
-    df = pd.read_csv('datas/2020_clean.csv')
+    df = pd.read_csv('https://raw.githubusercontent.com/hyontnick/qganalytics_blood_dashboard_indabax/main/APPLICATION/datas/2020_clean.csv')
     df['horodateur'] = pd.to_datetime(df['horodateur'])
     df['mois'] = df['horodateur'].dt.month_name()
     df['jour'] = df['horodateur'].dt.day
