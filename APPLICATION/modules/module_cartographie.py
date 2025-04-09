@@ -6,6 +6,7 @@ import json
 from fuzzywuzzy import process
 import plotly.express as px
 import plotly.graph_objects as go
+import requests
 
 # Dictionnaire de traductions pour le module Cartographie des Donneurs
 translations = {
