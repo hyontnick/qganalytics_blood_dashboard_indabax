@@ -7,7 +7,7 @@ import plotly.graph_objects as go
 from notifications import save_user_data  
 
 # URL de l’API FastAPI
-API_URL = "https://api-blood-donation.onrender.com/predict"
+API_URL = "https://api-blood-donation-gl.onrender.com/predict"
 
 # Dictionnaire de traductions
 translations = {
